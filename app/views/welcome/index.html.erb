@@ -1,0 +1,17 @@
+<center>
+
+<h1>Bienvenue <%= params["first_name"] %> sur The Gossip Project</h1>
+<% Gossip.all.each do |gossip| %>
+
+ <div class="card text-right" style="width: 30rem;">
+  <div class="card-body"> 
+    <h4 class="card-title" style="text-transform: uppercase;"><%= gossip.title %></h4>
+    <h6 class="card-subtitle mb-2 text-muted"><%= gossip.user.first_name %></h6>
+    <p class="card-text"><%= gossip.content %> </p>
+    <a href="/gossip/<%= gossip.id %>/" class="btn btn-success col-sm-7">Lien vers le gossip</a>
+    <a href="/user/<%=gossip.user_id %>/" class="btn btn-success col-sm-4">L'auteur</a>
+  </div>
+</div>
+
+<% end %>
+</center>
